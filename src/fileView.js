@@ -218,7 +218,7 @@ export async function renderFilePreview(file, path, fileExt, cacheUrl) {
         el(
           'a',
           ['class="download-button"', `href="${file['@microsoft.graph.downloadUrl']}"`, 'data-turbolinks="false"'],
-          '<i class="far fa-arrow-alt-circle-down"></i> DOWNLOAD'
+          '<i class="far fa-arrow-alt-circle-down"></i> Download'
         )
       )
   )
