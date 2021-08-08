@@ -212,15 +212,25 @@ export async function renderFilePreview(file, path, fileExt, cacheUrl) {
   const body = div(
     'container',
     div('path', renderPath(path) + ` / ${file.name}`) +
-      div('items', el('div', ['style="padding: 1rem 1rem;"'], await renderPreview(file, fileExt, cacheUrl))) +
-      div(
-        'download-button-container',
-        el(
-          'a',
-          ['class="download-button"', `href="${file['@microsoft.graph.downloadUrl']}"`, 'data-turbolinks="false"'],
-          '<i class="far fa-arrow-alt-circle-down"></i> Download'
-        )
+    div('items', el('div', ['style="padding: 1rem 1rem;"'], await renderPreview(file, fileExt, cacheUrl))) +
+    div(
+      'download-button-container download-button-Rewrite',
+      el(
+        'a',
+        ['class="download-button"', `href="${file['@microsoft.graph.downloadUrl']}"`, 'data-turbolinks="false"'],
+        '<i class="far fa-arrow-alt-circle-down"></i> Download'
+      )+
+      el(
+        'a',
+        ['class="download-button"', `href=potplayer://${file['@microsoft.graph.downloadUrl']}"`, 'data-turbolinks="false"'],
+        '<i class="far fa-arrow-alt-circle-down"></i> PotPlayer'
+      )+
+      el(
+        'a',
+        ['class="download-button"', `href=vlc://${file['@microsoft.graph.downloadUrl']}"`, 'data-turbolinks="false"'],
+        '<i class="far fa-arrow-alt-circle-down"></i> VLC'
       )
+    )
   )
   return renderHTML(body)
 }
